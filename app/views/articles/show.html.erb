@@ -1,5 +1,16 @@
+<%= link_to 'Back to Articles', articles_path %>
+
 <h2><%= @article.title %></h2>
 <p><%= @article.body%></p>
+
+
+<h2>Comments</h2>
+<%# <%= render partial: 'comments/comment', collection: @article.comments %>
+<%= render @article.comments %>
+
+<h2>Add a comment：</h2>
+<%= render 'comments/form'%>
+
 <ul>
   <li><%= link_to "Edit", edit_article_path(@article) %></li>
   <li><%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" } %></li>
